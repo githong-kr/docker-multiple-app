@@ -8,7 +8,7 @@ services:
 bundler_args: --retry 10
 
 before_install:
-  - travis_wait docker build -t bale/react-test-app -f ./frontend/Dockerfile.dev ./frontend
+  - travis_retry docker build -t bale/react-test-app -f ./frontend/Dockerfile.dev ./frontend
 
 script:
   - docker run -e CI=true bale/react-test-app npm run test
