@@ -1,0 +1,8 @@
+CREATE DATABASE myapp IF NOT EXISTS myapp;
+USE myapp;
+
+CREATE TABLE IF NOT EXISTS lists (
+    id INTEGER AUTO_INCREMENT,
+    value TEXT,
+    PRIMARY KEY (id)
+);
