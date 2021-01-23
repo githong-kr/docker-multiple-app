@@ -8,16 +8,16 @@ services:
 bundler_args: --retry 10
 
 before_install:
-  - travis_retry docker build -t bale/react-test-app -f ./frontend/Dockerfile.dev ./frontend
+  - travis_retry docker build -t githong/react-test-app -f ./frontend/Dockerfile.dev ./frontend
 
 script:
-  - docker run -e CI=true bale/react-test-app npm run test
+  - docker run -e CI=true githong/react-test-app npm run test
 
 after_success:
-  - docker build -t bale/docker-frontend ./frontend
-  - docker build -t bale/docker-backend ./backend
-  - docker build -t bale/docker-nginx ./nginx
+  - docker build -t githong/docker-frontend ./frontend
+  - docker build -t githong/docker-backend ./backend
+  - docker build -t githong/docker-nginx ./nginx
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
-  - docker push bale/docker-frontend
-  - docker push bale/docker-backend
-  - docker push bale/docker-nginx
+  - docker push githong/docker-frontend
+  - docker push githong/docker-backend
+  - docker push githong/docker-nginx
