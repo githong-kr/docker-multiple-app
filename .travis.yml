@@ -5,7 +5,7 @@ sudo: required
 services:
   - docker
 
-bundler_args: --retry 5
+bundler_args: --retry 10
 
 install: travis_retry pip install alpine
 
