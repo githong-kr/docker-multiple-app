@@ -5,6 +5,10 @@ sudo: required
 services:
   - docker
 
+bundler_args: --retry 5
+
+install: travis_retry pip install alpine
+
 before_install:
   - docker build -t bale/react-test-app -f ./frontend/Dockerfile.dev ./frontend
 
