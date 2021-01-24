@@ -25,10 +25,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: "ap-northeast-2"
-  app: "docker-multiple-app2"
-  env: "DockerMultipleApp2-env"
+  app: "new-docker-multiple-app"
+  env: "NewDockerMultipleApp-env"
   bucket_name: "elasticbeanstalk-ap-northeast-2-768957609160"
-  bucket_path: "docker-multiple-app2"
+  bucket_path: "new-docker-multiple-app"
   on:
     branch: master
 
