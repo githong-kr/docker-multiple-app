@@ -21,3 +21,16 @@ after_success:
   - docker push githong/docker-frontend
   - docker push githong/docker-backend
   - docker push githong/docker-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-multiple-app"
+  env: DockerMultipleApp-env
+  bucket_name: elasticbeanstalk-ap-northeast-2-768957609160
+  bucket_path: "docker-multiple-app"
+  on:
+    branch: master
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AES_SECRET_ACCESS_KEY
