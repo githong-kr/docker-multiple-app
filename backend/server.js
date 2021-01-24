@@ -30,8 +30,7 @@ app.post('/api/value', function(req, res, next) {
         if (err)
             return res.status(500).send(err)
         else
-            return res.json({ success: true, value: req.body.value})
-    })
+
 })
 
 //Express 서버 포트 5000에서 시작
