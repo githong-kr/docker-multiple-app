@@ -5,10 +5,8 @@ sudo: required
 services:
   - docker
 
-bundler_args: --retry 10
-
 before_install:
-  - travis_retry docker build -t githong/react-test-app -f ./frontend/Dockerfile.dev ./frontend
+  - docker build -t githong/react-test-app -f ./frontend/Dockerfile.dev ./frontend
 
 script:
   - docker run -e CI=true githong/react-test-app npm run test
@@ -24,11 +22,11 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: "ap-northeast-2"
-  app: "docker-multiple-app2"
-  env: "DockerMultipleApp2-env"
-  bucket_name: "elasticbeanstalk-ap-northeast-2-768957609160"
-  bucket_path: "docker-multiple-app2"
+  region: "us-east-2"
+  app: "docker-multiple-app"
+  env: "DockerMultipleApp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-768957609160"
+  bucket_path: "docker-multiple-app"
   on:
     branch: master
 
